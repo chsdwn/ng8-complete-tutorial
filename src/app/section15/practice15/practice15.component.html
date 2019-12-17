@@ -1,0 +1,60 @@
+<!-- 
+  Create a form with the following Controls and Validators
+  1) Project Name (should not be empty)
+  2) Mail (shoul not be a empty and a valid email)
+  3) Project Status Dropdown, with three values: 'Stable', 'Critical', 'Finished'
+  4) Submit Button
+
+  Add your own Validator which doesn't allow "Test" as a Project Name
+  Also implement that Validator as an async Validator (replace the other one)
+  Upon submitting the form, simply print the value to the console
+ -->
+<!-- With Template Driven Form -->
+<!-- <div class="col-xs-12">
+  <form (ngSubmit)="onSubmit()" #projectForm="ngForm">
+    <div class="form-group">
+      <label for="projectName">Project Name</label>
+      <input type="text" id="projectName" name="projectName" class="form-control" required ngModel>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" class="form-control" required ngModel email="#email">
+    </div>
+    <div class="radio" *ngFor="let status of statuses">
+      <label>
+        <input id="status" type="radio" [value]="status" name="status" ngModel>
+        {{ status }}
+      </label>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!projectForm.valid">Submit</button>
+  </form>
+</div> -->
+
+<!-- With Reactive Form -->
+<div class="col-xs-12">
+  <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Project Name</label>
+      <input id="name" type="text" class="form-control" formControlName="name">
+      <span class="help-block" *ngIf="!projectForm.get('name').valid && projectForm.get('name').touched">
+        Please select a valid Project Name.
+      </span>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="email" class="form-control" formControlName="email">
+      <span class="help-block" *ngIf="!projectForm.get('email').valid && projectForm.get('email').touched">
+        Please enter a valid mail address.
+      </span>
+    </div>
+    <div class="form-group">
+      <label for="status">Project Status</label>
+      <select name="status" id="status" class="form-control" formControlName="status">
+        <option value="stable">Stable</option>
+        <option value="critical">Critical</option>
+        <option value="finished">Finished</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!projectForm.valid">Send Project</button>
+  </form>
+</div>

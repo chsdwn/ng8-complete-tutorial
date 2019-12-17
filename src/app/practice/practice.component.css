@@ -1,0 +1,11 @@
+.hide {
+    visibility: hidden;
+}
+
+.blueBackground {
+    background-color: blue;
+}
+
+.whiteColor {
+    color: white;
+}

@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="toggleDetails()">Display Details</button>
+      <p [ngClass]="{hide: isDetailsVisible === false}">
+        The mystery of life is smiling.
+      </p>
+      <div *ngFor="let log of logDetailsButtonClicks"
+          [ngClass]="{blueBackground: log.id > 4, whiteColor: log.id > 4}">{{ log.id }}th {{ log.name }}
+      </div>
+    </div>
+  </div>
+</div>

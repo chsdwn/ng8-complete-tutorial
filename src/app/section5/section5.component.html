@@ -1,0 +1,22 @@
+<!-- <div class="container">
+  <app-cockpit (serverCreated)="onServerAdded($event)" (blueprintCreated)="onBlueprintAdded($event)"></app-cockpit>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-server-element *ngFor="let serverElement of serverElements" [srvElement]="serverElement"></app-server-element>
+    </div>
+  </div>
+  <hr>
+  <app-lifecycle></app-lifecycle>
+</div> -->
+<app-game-control (intervalFired)="onIntervalFired($event)"></app-game-control>
+<div class="row">
+  <div class="col-xs-6">
+    <p>Even Numbers</p>
+    <app-even *ngFor="let evenNumber of evenNumbers" [number]="evenNumber"></app-even>
+  </div>
+  <div class="col-xs-6">
+    <p>Odd Numbers</p>
+    <app-odd *ngFor="let oddNumber of oddNumbers" [number]="oddNumber"></app-odd>
+  </div>
+</div>

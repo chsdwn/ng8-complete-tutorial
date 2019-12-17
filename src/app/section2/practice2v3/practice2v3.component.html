@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="onToggleDetails()">What is the secret of a healthier life?</button>
+      <div class="panel panel-default panel-body" [ngClass]="{hidden: !isToggled}">
+        <p>Drink at least 3 liters of water a day.</p>
+        <p>Quit drinking alcohol and soda.</p>
+      </div>
+      <br>
+      <p
+        *ngFor="let log of toggleLogs"
+        [ngStyle]="{'background-color': log.id > 4 ? 'blue' : '' }" 
+        [ngClass]="{'color-white': log.id > 4}">
+        {{ log.id }}{{ log.log }}
+      </p>
+    </div>
+  </div>
+</div>
